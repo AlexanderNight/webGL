@@ -1,0 +1,124 @@
+/* ---------------------------------кнопка --------------------------------------*/
+.__button {
+	align-self: center;
+	background-color: #f2726f;
+	border-radius: 8px;
+	text-align: center;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 2;
+	padding: 12px 25px;
+}
+
+/* ---------------------------------------------------- ------------------------*/
+
+
+
+/* -------------------Контейнер по сложному селектору----------------------------*/
+[class*="__container"] {
+	max-width: 1050px;
+	margin: 0px auto;
+	padding: 0px 15px;
+}
+
+
+/* ----------------------------------------------------------------------------- */
+
+
+
+/* Прибитие футера к низу */
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+.main {
+	flex-grow: 1;
+}
+
+
+
+
+/* Адаптив =====================================================================
+
+размер шрифта делим на ширину макета и * на 100
+360/1920*100= 18.75vw окуругляем до 2ух цифр после точки и пишем в формулу
+font-size: clamp(16px, 18.75vw, 20px); где 1-минимальный 2-рекомендуемый 3-максимальный
+*/
+
+.font__size-adaptiv {
+	font-size: clamp(16px, 18.75vw, 20px);
+	font-size: 2em; /*Делим фонт сайз родителя на фонт сайз */
+}
+
+
+@media (max-width: 1050px) {
+	[class*="__container"] {
+		/* max-width: 970px; */
+	}
+}
+
+/* №2 */
+@media (max-width: 991.98px) {
+	[class*="__container"] {
+		/* max-width: 750px; */
+	}
+}
+
+/* №3 */
+@media (max-width: 767.98px) {
+	[class*="__container"] {
+		/* max-width: none; */
+	}
+}
+
+
+
+
+
+
+
+
+
+/* Скрытие класса  */
+.visually-hidden{
+	position: absolute !important;
+		width: 1px !important;
+		height: 1px !important;
+		margin: -1px !important;
+		border: 0 !important;
+		padding: 0 !important;
+		white-space: nowrap !important;
+		clip-path: inset(100%) !important;
+		clip: rect(0 0 0 0) !important;
+		overflow: hidden !important;
+}
+
+/* Технический класс для img адаптив картинки  */
+
+/* для родителя ссылка с изображением 
+вычисляем высоту картинки = 260(ширина) / 350(высота) * 100 = 74,
+28571428571429 - значение вставляим в падинг боттом
+
+*/
+
+.родитель{
+	padding: 0px 0px 74.28571428571429% 0px; 
+	/*  */
+}
+/* для картинки */
+._ibg {
+	position: relative;
+}
+._ibg img {
+	position: absolute;
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+}
+
